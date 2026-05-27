@@ -36,6 +36,10 @@ ui <- page_sidebar(
       
       div(
         class = "ps-3", 
+        p("This dashboard accompanies a ",
+          tags$a("pre-print", href = "http://ssrn.com/abstract=6816002", target = "_blank"),
+          " that is currently under review."
+          ),
         p("This dashboard models surface-leaving radiance from mixtures of smoldering (EM1), flaming (EM2) and background radiance (EM3). Radiance mixtures are compared against area-independent Fire Radiative Power Density (FRPD)."),
         p("Spectral radiance is mixed according to: "),
         p(paste0(
@@ -45,7 +49,8 @@ ui <- page_sidebar(
         p(
           "The controls below allow users to customize the data space by adjusting controls for both emitted (EM1, EM2) and background (EM3) endmembers."
           ),
-        p("For more in-depth description of inputs, see the Documentation section below the plot descriptions at right.")
+        p("For more in-depth description of inputs, see the Documentation section below the plot descriptions at right."),
+        
       ),
       accordion_panel(
         
