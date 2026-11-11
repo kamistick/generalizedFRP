@@ -231,7 +231,7 @@ server <- function(input, output, session){
       add_lines(x=frpd_plotting$rad,
                 y= frpd_calc_W,
                 line = list(color = "#13e0e0"),
-                name = "Indirect Fit (Wooster et al. (2003))",
+                name = "Theoretical Fit (Wooster et al. (2003))",
                 text = hover_text_wooster,       
                 hoverinfo = 'text') |>
       layout(
@@ -263,7 +263,7 @@ server <- function(input, output, session){
       add_lines(x=frpd_plotting$rad,
                 y= fitted_frpds,
                 line = list(color = "#e41a1c"),
-                name = paste0("Direct Fit: FRPD= ", round(a, 3), " L^", round(b,3)))
+                name = paste0("Empirical Fit: FRPD= ", round(a, 3), " L^", round(b,3)))
     ems <- error_mets(frpd_plotting$frpd, fitted_frpds)
     ems_text <- paste0(
       "nRMSE = ", round(ems$nrmse, 4)
@@ -306,13 +306,13 @@ server <- function(input, output, session){
       add_markers(data = emis_df,
                   x=~percent.error,
                   y=~nrmses,
-                  name = "Direct Fit",
+                  name = "Empirical Fit",
                   marker = list(color = "#e41a1c")) |>
       add_markers(data = emis_df,
                   x=~percent.error,
                   y=~woostnrmses,
                   #name = "FRPD = sigma * (L /(t * a))",
-                  name = "Indirect Fit",
+                  name = "Theoretical Fit",
                   marker = list(color = "#13e0e0")) |>
       add_lines(data = emis_df,
                   x=~percent.error,
@@ -328,7 +328,7 @@ server <- function(input, output, session){
                   line = list(color = "#13e0e0")) |>
       layout(
          xaxis=list(title=list(text="Percent error (%) in spectral emissivity")),
-         yaxis = list(title=list(text="nRMSE (Theoretical FRPD vs. Modeled FRPD)"))
+         yaxis = list(title=list(text="nRMSE (True FRPD vs. Modeled FRPD)"))
       )
      
     

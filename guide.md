@@ -88,7 +88,7 @@ Parameters under these subheadings control how spectral radiance is mixed accord
 
 ### EM1 & EM2: Emissivity, all-wave
 
-**Description:** All-wave emissivity used in the calculation of theoretical FRPD (Eq. 3; see plot description for `Radiance vs. FRPD`).
+**Description:** All-wave emissivity used in the calculation of true FRPD (Eq. 3; see plot description for `Radiance vs. FRPD`).
 
 **Arguments:** Numeric slider selection
 

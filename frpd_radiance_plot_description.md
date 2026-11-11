@@ -25,9 +25,9 @@ purple
 ***
 
 
-#### **Theoretical fire radiative power (FRPD) calculation**
+#### **Fire radiative power density (FRPD) calculation**
 
-FRPD ($W/m^2$) is calculated according to:
+True FRPD ($W/m^2$) is calculated according to:
 
 $$FRPD = \sigma f_1 \varepsilon_{1, aw} T_{1}^4 + \sigma f_{2} \varepsilon_{2, aw} T_{2}^4 \tag{Eq. 3}$$
 
@@ -40,7 +40,7 @@ Temperature ranges and all-wave emissivity are set in the controls to the left.
 
 #### **Modeling FRPD**
 
-Two fits are displayed: `Indirect Fit (Wooster et al. (2003))` and `Direct Fit: FRPD = aL^b`. For the `Indirect Fit` FRPD is calculated according to the method first proposed by Wooster et al. (2003):
+Two fits are displayed: `Theoretical Fit (Wooster et al. (2003))` and `Empirical Fit: FRPD = aL^b`. For the `Theoretical Fit` FRPD is calculated according to the method first proposed by Wooster et al. (2003):
 
 $$FRPD = \frac{L_{diff} \sigma}{\alpha} \tag{Eq. 4}$$
 
@@ -50,11 +50,11 @@ $$L = \alpha T^4 \tag{Eq. 5}$$
 
 This method was originally developed for fire radiative power (FRP) which is related to FRPD such that $FRPD = FRP \times A$, where FRP (W) accounts for an area $A$ ($m^2$) over which the FRPD is being measured.
 
-The `Direct Fit: FRPD = aL^b` fit is calculated according to:
+The `Empirical Fit: FRPD = aL^b` fit is calculated according to:
 
 $$FRPD = a L_{m}^b \tag{Eq. 6}$$
 
-Where coefficients $a$ and $b$ are fit using nonlinear least squares regression, $L_m$ is mixed spectral radiance (Eq. 1) and $FRPD$ is theoretical FRPD (Eq. 3).
+Where coefficients $a$ and $b$ are fit using nonlinear least squares regression, $L_m$ is mixed spectral radiance (Eq. 1) and $FRPD$ is true FRPD (Eq. 3).
 
 nRMSE values shown on the `FRPD vs. Radiance` plot indicate the RMSE of each model calculated with respect to FRPD values of the mixed radiance data points, normalized using mean FRPD.
 
