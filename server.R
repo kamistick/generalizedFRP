@@ -114,13 +114,12 @@ server <- function(input, output, session){
     temps.w <- seq(650,1300,10) # define Wooster temps
     planck.vals.w <- vapply(temps.w, function(te) planck_vary_T_wvl_um(input$wavelength, te), numeric(1)) # no additional emissivity bc cancels out
     b.w <- 4 # based on the L = aT^4 fit
-    start <- max(planck.vals.w)/max(temps.w)^b.w # realistic start value for a
     df <- data.frame(temps = temps.w, rads = planck.vals.w) # nls() needs data in a dataframe
-    fit <- nls(rads ~ a * temps.w^b.w, start = list(a = start), control=list(maxiter=400), data=df) # find a, hold b at 4
-    a.w  <- coef(fit)[["a"]] 
-    w.rads <- a.w * temps.w^b.w # calculate radiances
-    frpd_calc_W <- frpd(sigma, epsilon = 0.8 ,a.w, b.w, frpd_plotting$rad-input$background_rad, t=1) # epsilon (emissivity) doesn't matter here bc it will always cancel out
-    return(list(coef_a = a.w, frpd_fitted_vals = frpd_calc_W))
+    fit.ols <- lm(df$rads ~ 0 + I(df$temps^b.w)) # I() treats the exponent "as is" instead of as a factorial in the equation syntax
+    a.ols <- coef(fit.ols)
+    w.rads <- a.ols * temps.w^b.w # calculate radiances
+    frpd_calc_W <- frpd(sigma, epsilon = 0.8 ,a.ols, b.w, frpd_plotting$rad-input$background_rad, t=1) # epsilon (emissivity) doesn't matter here bc it will always cancel out
+    return(list(coef_a = a.ols, frpd_fitted_vals = frpd_calc_W))
   })
   
   ## -------- emissivity reactive
