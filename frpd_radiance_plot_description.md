@@ -44,7 +44,7 @@ Two fits are displayed: `Theoretical Method (Wooster et al. (2003))` and `Empiri
 
 $$FRPD = \frac{L_{diff} \sigma}{\alpha} \tag{Eq. 4}$$
 
-Where $\sigma$ is Stefan Boltzmann's constant ($W m^{-2}K^{-4}$), $L_{diff}$ is spectral radiance (Eq. 1) from which background radiance is subtracted, and coefficient $\alpha$ is calculated by approximating Planck's equation over a range of temperatures (600 to 1300 K, with a step of 10 K) using the relationship:
+Where $\sigma$ is Stefan Boltzmann's constant ($W m^{-2}K^{-4}$), $L_{diff}$ is spectral radiance (Eq. 1) from which background radiance is subtracted, and coefficient $\alpha$ is calculated by approximating Planck's equation over a range of temperatures (650 to 1300 K, with a step of 10 K) using the relationship:
 
 $$L = \alpha T^4 \tag{Eq. 5}$$
 
