@@ -40,7 +40,7 @@ Temperature ranges and all-wave emissivity are set in the controls to the left.
 
 #### **Modeling FRPD**
 
-Two fits are displayed: `Theoretical Fit (Wooster et al. (2003))` and `Empirical Fit: FRPD = aL^b`. For the `Theoretical Fit` FRPD is calculated according to the method first proposed by Wooster et al. (2003):
+Two fits are displayed: `Theoretical Method (Wooster et al. (2003))` and `Empirical Method: FRPD = aL^b`. For the `Theoretical Method` FRPD is calculated according to the method first proposed by Wooster et al. (2003):
 
 $$FRPD = \frac{L_{diff} \sigma}{\alpha} \tag{Eq. 4}$$
 
@@ -50,7 +50,7 @@ $$L = \alpha T^4 \tag{Eq. 5}$$
 
 This method was originally developed for fire radiative power (FRP) which is related to FRPD such that $FRPD = FRP \times A$, where FRP (W) accounts for an area $A$ ($m^2$) over which the FRPD is being measured.
 
-The `Empirical Fit: FRPD = aL^b` fit is calculated according to:
+The `Empirical Method: FRPD = aL^b` fit is calculated according to:
 
 $$FRPD = a L_{m}^b \tag{Eq. 6}$$
 
